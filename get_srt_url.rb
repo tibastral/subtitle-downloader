@@ -1,5 +1,13 @@
 #!/usr/bin/env ruby
 
-require "./app/models/tv_show"
+# $:.unshift File.join(File.dirname(__FILE__),'..', 'app', 'models')
 
-puts TvShow.new(ARGV[0]).result
+$:.unshift File.join(File.dirname(__FILE__), 'app', 'models')
+
+require "tv_show"
+
+`wget -P ~/Downloads/srt "#{TvShow.new(ENV['TR_TORRENT_NAME']).result}"`
+
+`unzip ~/Downloads/srt/*.zip -d ~/Downloads/srt`
+
+`rm ~/Downloads/srt/*.zip`
