@@ -32,7 +32,13 @@ class TvShow
   end
 
   def result
-    @result ||= @links.to_a.select{|e| Regexp.new(warez_group) =~ e[0].downcase}.first.last
+    unless @result
+      results = links.to_a.select{|e| Regexp.new(warez_group) =~ e[0].downcase}
+      if results.select{|e| /fr/ =~ e[0].downcase}.count > 0
+        results = results.select{|e| /fr/ =~ e[0].downcase}
+      end
+      @result ||= results.first.last
+    end
   end
 
   def warez_group

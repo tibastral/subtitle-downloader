@@ -30,4 +30,8 @@ Feature: Get data from filename
     Then the url should be "https://www.betaseries.com/episode/desperatehousewives/s08e05"
     Then the warez group should be "lol"
     Then the page links should contain "Desperate Housewives_8x05_HDTV.LOL.en.zip"
-    Then the result should be "https://www.betaseries.com/srt/358275"
+    Then the result should be "https://www.betaseries.com/srt/358357"
+
+  Scenario: find Dexter
+    When I parse the torrent "Dexter_S06E05_720p_HDTV_X264-DIMENSION_[eztv].6784543.TPB.torrent" to a new tvshow
+    Then the name of my movie should be "Dexter"

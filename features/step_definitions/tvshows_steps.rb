@@ -25,3 +25,8 @@ end
 Then /^the warez group should be "([^"]*)"$/ do |warez_group|
   @tvshow.warez_group.should == warez_group
 end
+
+Then /^debug$/ do
+  debugger
+  puts 'debugged'
+end
