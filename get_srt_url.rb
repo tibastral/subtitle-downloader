@@ -6,7 +6,7 @@ $:.unshift File.join(File.dirname(__FILE__), 'app', 'models')
 
 require "tv_show"
 
-`wget -P ~/Downloads/srt "#{TvShow.new(ENV['TR_TORRENT_NAME']).result}"`
+`/usr/local/bin/wget -P ~/Downloads/srt "#{TvShow.new(ENV['TR_TORRENT_NAME']).result}"`
 
 `unzip ~/Downloads/srt/*.zip -d ~/Downloads/srt`
 
