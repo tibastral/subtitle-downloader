@@ -23,6 +23,12 @@ Feature: Get data from filename
     When I parse the torrent "Doctor_House_S06E07_720p_HDTV_X264-DIMENSION_[eztv].6784543.TPB.torrent" to a new tvshow
     Then the name of my movie should be "Doctor House"
     Then the warez group should be "dimension"
+
+  Scenario: find Doctor House
+    When I parse the torrent "Doctor_House_s06e07_720p_HDTV_X264-DIMENSION_[eztv].6784543.TPB.torrent" to a new tvshow
+    Then the name of my movie should be "Doctor House"
+    Then the warez group should be "dimension"
+
   
   Scenario: find Desperate
     When I parse the torrent "Desperate_Housewives_S08E05_HDTV_XviD-LOL_[eztv].6766652.TPB.torrent" to a new tvshow

@@ -9,7 +9,7 @@ class TvShow
   end
 
   def name
-    @name ||= @filename.split(/S\d{2}E\d{2}/)[0].gsub(/[-_.]/, ' ').strip
+    @name ||= @filename.split(/[Ss]\d{2}[Ee]\d{2}/)[0].gsub(/[-_.]/, ' ').strip
   end
 
   def episode_number
@@ -42,6 +42,6 @@ class TvShow
   end
 
   def warez_group
-    @warez_group ||= @filename.split(/S\d{2}E\d{2}/)[1].gsub(/[\-_.]/, ' ').downcase.gsub(/hdtv|xvid|720p|x264|avi|mkv/, '').split(/\d{4,}/)[0].strip.split("[")[0].strip
+    @warez_group ||= @filename.split(/[Ss]\d{2}[Ee]\d{2}/)[1].gsub(/[\-_.]/, ' ').downcase.gsub(/hdtv|xvid|720p|x264|avi|mkv/, '').split(/\d{4,}/)[0].strip.split("[")[0].strip
   end
 end
