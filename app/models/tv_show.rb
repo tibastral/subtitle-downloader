@@ -5,7 +5,7 @@ require 'open-uri'
 class TvShow
   attr_accessor :name, :episode_number, :filename, :result
   def initialize(filename)
-    @filename = filename
+    @filename = filename.gsub(/\[.*\]/, '')
   end
 
   def name
@@ -13,7 +13,7 @@ class TvShow
   end
 
   def episode_number
-    @episode_number ||= @filename.sub(/.*(S\d{2}E\d{2}).*/, "\\1")
+    @episode_number ||= @filename.sub(/.*([sS]\d{2}[eE]\d{2}).*/, "\\1")
   end
 
   def url
