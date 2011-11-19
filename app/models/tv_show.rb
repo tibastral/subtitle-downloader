@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 
 class TvShow
-  attr_accessor :name, :episode_number, :filename, :result
+  attr_accessor :name, :episode_number, :filename, :result, :results
   def initialize(filename)
     @filename = filename.gsub(/\[.*\]/, '')
   end
@@ -31,11 +31,15 @@ class TvShow
     @links
   end
 
+  def results
+    links.values
+  end
+
   def result
     unless @result
-      results = links.to_a.select{|e| Regexp.new(warez_group) =~ e[0].downcase}
-      if results.select{|e| /fr/ =~ e[0].downcase}.count > 0
-        results = results.select{|e| /fr/ =~ e[0].downcase}
+      @results = links.to_a.select{|e| Regexp.new(warez_group) =~ e[0].downcase}
+      if @results.select{|e| /fr/ =~ e[0].downcase}.count > 0
+        @results = @results.select{|e| /fr/ =~ e[0].downcase}
       end
       @result ||= results.first.last
     end
